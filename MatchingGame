@@ -1,0 +1,61 @@
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
+//Version 0.1
+//Nickolas Kusman
+//Created skeleton for code
+
+public class MyMatchingGame implements ActionListener
+{
+
+  public void DealCardsToMatch(Jpanel panelForDealMethod)
+  {
+  }
+//This method is meant to set cards to match
+  public void updateCardsToMatch(String x, String z, boolean math)
+  {
+  }
+//This method is meant to update cards after being provided input
+  public void actionMade(ActionEvent myAction) 
+  {
+  }
+//This method is meant to track and look for card input
+  public void makeUI()
+  {
+  }
+//This method is meant to set up the user input screen,  
+//End Methods
+
+  public static void main(string[] args)
+  {
+  }
+//main intended to run program 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
