@@ -60,6 +60,19 @@ int myIndex
 //This method is meant to track and look for card input
   public void makeUI()
   {
+
+  Jframe ui = new Jframe("Here is our implementation of a Matching Game c:");
+  ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  myPanel = new Jpanel(new GridLayout(3,4))
+  myPanel.setPreferredSize(new Dimension(750, 500));
+  DealCardsToMatch(myPanel);
+  //This is the code that sets up the window to be displayed
+  
+  ui.pack();
+  ui.setSize(750, 750);
+  ui.setVisible(true)
+  //this is the code for the display window
+  
   }
 //This method is meant to set up the user input screen
 //End Methods
