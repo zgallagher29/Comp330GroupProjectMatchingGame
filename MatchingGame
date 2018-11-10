@@ -2,12 +2,49 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
-//Version 0.1
+
+//Version 0.2
 //Nickolas Kusman
-//Created skeleton for code
+//Created Variables intended for the program
 
 public class MyMatchingGame implements ActionListener
 {
+//Very important-- 4x4 board card text --Implemented--
+String[][] CardsToMatch = {#,#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          
+//Very important-- 8x8 board card text --HAVE NOT IMPLEMENTED THIS.--
+String[][] CardsToMatch = {#,#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#,#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          {#.#},
+                          
+//import variables                          
+Jpanel myPanel;
+JFrame myFrame;
+JButton[][] buttonsForGame
+
+//Non-import variables
+int genericInt = 0;
+boolean HasFlipped = true;
+int card;
+int myIndex
+
 
   public void DealCardsToMatch(Jpanel panelForDealMethod)
   {
@@ -24,7 +61,7 @@ public class MyMatchingGame implements ActionListener
   public void makeUI()
   {
   }
-//This method is meant to set up the user input screen,  
+//This method is meant to set up the user input screen
 //End Methods
 
   public static void main(string[] args)
@@ -32,30 +69,5 @@ public class MyMatchingGame implements ActionListener
   }
 //main intended to run program 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
