@@ -3,9 +3,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.2
+//Version 0.3
 //Nickolas Kusman
-//Created Variables intended for the program
+//Created UI for program
 
 public class MyMatchingGame implements ActionListener
 {
