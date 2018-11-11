@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.3
+//Version 0.4
 //Nickolas Kusman
 //Created UI for program
 
@@ -48,6 +48,14 @@ int myIndex
 
   public void DealCardsToMatch(Jpanel panelForDealMethod)
   {
+  myButton = new JButton[3][];
+    for (int a = 0; a < 3*4; a++)
+    {
+    if (a % 4 == 0) myButton[a/4] = new JButton[4];
+    myButton[a/4][a%4] = new Jbutton ("Yaboi");
+    myButton[a/4][a%4].addActionListener(this);
+    panelForDealMethod.add(myButton[[a/4][a%4]);
+    }
   }
 //This method is meant to set cards to match
   public void updateCardsToMatch(String x, String z, boolean math)
