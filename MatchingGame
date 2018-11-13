@@ -49,12 +49,12 @@ int myIndex
   public void DealCardsToMatch(Jpanel panelForDealMethod)
   {
   myButton = new JButton[3][];
-    for (int a = 0; a < 3*4; a++)
+    for (int genericInt = 0; genericInt < 3*4; genericInt++)
     {
-    if (a % 4 == 0) myButton[a/4] = new JButton[4];
-    myButton[a/4][a%4] = new Jbutton ("Yaboi");
-    myButton[a/4][a%4].addActionListener(this);
-    panelForDealMethod.add(myButton[[a/4][a%4]);
+    if (genericInt % 4 == 0) myButton[genericInt/4] = new JButton[4];
+    myButton[genericInt/4][a%4] = new Jbutton ("Yaboi");
+    myButton[genericInt/4][a%4].addActionListener(this);
+    panelForDealMethod.add(myButton[[genericInt/4][genericInt%4]);
     }
   }
 //This method is meant to set cards to match
@@ -91,7 +91,40 @@ int myIndex
 //This method is meant to update cards after being provided input
   public void actionMade(ActionEvent myAction) 
   {
-  }
+          int q,w;
+        if (genericInt<2) { //find the card clicked on and flip it over
+
+            for (q=0; q< 3; q++) {
+                for (w=0; w< 4; w++) {
+                    if ((e.getSource()== buttonsForGame[q][w]) && buttonsForGame[q][w].getText().equals("Face-Down"))
+                    {
+                        buttonsForGame[q][w].setText(checkForMatch[(q*4+w)/2][(q*4+w)%2]);
+                        genericInt++;
+                        if (genericInt==1) cardOne = (q*4+w)/2; 
+                        else secIndex = (q*4+w)/2;
+                        return;
+                    }
+                }
+            }
+        } else {
+
+            for (q=0; q< 3; q++) {
+                for (w=0; w< 4; w++) {
+                    if (cardOne == secIndex)
+                    {
+                        if (!buttonsForGame[q][w].getText().equals("Face-Down")) 
+                            buttonsForGame[q][w].setText("--------"); 
+                    }
+                    else if ((!buttonsForGame[q][w].getText().equals("--------")) && (!buttonsForGame[q][w].getText().equals("Face-Down")))
+                    {
+                        buttonsForGame[q][w].setText("Face-Down"); 
+                    }
+                }
+                genericInt=0; 
+            }
+        }
+    }
+  
 //This method is meant to track and look for card input
   public void makeUI()
   {
