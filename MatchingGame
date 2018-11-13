@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.5
+//Version 0.6
 //Nickolas Kusman
 //Created UI for program
 
@@ -69,15 +69,24 @@ int myIndex
             ListCurrent[0] = new String[2];
             ListCurrent[0][0] = new String(o);
             ListCurrent[0][1] = new String(p); 
-            for (int item=1; item<= pVal; item++) {
-                ListCurrent[item][0] = checkForMatch[item-1][0];
-                ListCurrent[item][1] = checkForMatch[item-1][1];
+            for (int temp=1; temp<= pVal; temp++) {
+                ListCurrent[temp][0] = checkForMatch[temp-1][0];
+                ListCurrent[temp][1] = checkForMatch[temp-1][1];
             }
             checkForMatch = ListCurrent;
-            //This should add the new item to the list
-
-
-UNFINISHED--
+            //This should add the new temp val to the list
+             } else {
+            ListCurrent = new String[pVal-1][];
+            ListCurrent[0] = new String[2];
+            ListCurrent[0][0] = new String(o);
+            ListCurrent[0][1] = new String(p); 
+            for (int temp=0; temp<= pVal; temp++) {
+                if (a != ListCurrent[temp][0]) { 
+                    ListCurrent[temp][0] = checkForMatch[temp][0];
+                    ListCurrent[temp][1] = checkForMatch[temp][1];
+                }
+            }
+            checkForMatch = ListCurrent;
   }
 //This method is meant to update cards after being provided input
   public void actionMade(ActionEvent myAction) 
