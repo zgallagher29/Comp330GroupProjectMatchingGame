@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.6
+//Version 0.7
 //Nickolas Kusman
 //Created UI for program
 
