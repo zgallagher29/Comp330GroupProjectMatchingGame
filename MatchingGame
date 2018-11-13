@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.4
+//Version 0.5
 //Nickolas Kusman
 //Created UI for program
 
@@ -60,6 +60,24 @@ int myIndex
 //This method is meant to set cards to match
   public void updateCardsToMatch(String x, String z, boolean math)
   {
+        int pVal = checkForMatch.length;
+        String[][] ListCurrent;
+        int i,j;
+        
+        if (math) {
+            ListCurrent = new String[pVal+1][];
+            ListCurrent[0] = new String[2];
+            ListCurrent[0][0] = new String(o);
+            ListCurrent[0][1] = new String(p); 
+            for (int item=1; item<= pVal; item++) {
+                ListCurrent[item][0] = checkForMatch[item-1][0];
+                ListCurrent[item][1] = checkForMatch[item-1][1];
+            }
+            checkForMatch = ListCurrent;
+            //This should add the new item to the list
+
+
+UNFINISHED--
   }
 //This method is meant to update cards after being provided input
   public void actionMade(ActionEvent myAction) 
