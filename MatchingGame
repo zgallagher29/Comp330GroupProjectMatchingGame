@@ -150,5 +150,12 @@ int myIndex
   }
 //main intended to run program 
 }
+javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
+  public void run() 
+   {
+          MatchGame app = new MatchGame();
+          app.makeGUI();
+   }
+});
 }
