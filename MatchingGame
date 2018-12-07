@@ -10,16 +10,18 @@ import java.awt.*;
 public class MyMatchingGame implements ActionListener
 {
 //Very important-- 4x4 board card text --Implemented--
-String[][] CardsToMatch = {#,#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          
+String[][] CardsToMatch = { 
+                              {"Blue", "Blue"},     
+                              {"Red", "Red"},
+                              {"Green", "Green" },  
+                              {"Purple", "Purple"}, 
+                              {"Orange", "Orange"}, 
+                              {"Yellow", "Yellow"}, 
+                              {"Gray", "Grey" }  
+                            };
+/*
 //Very important-- 8x8 board card text --HAVE NOT IMPLEMENTED THIS.--
-String[][] CardsToMatch = {#,#},
+String[][] CardsToMatch2 = {#,#},
                           {#.#},
                           {#.#},
                           {#.#},
@@ -33,6 +35,7 @@ String[][] CardsToMatch = {#,#},
                           {#.#},
                           {#.#},
                           {#.#},
+ */
                           
 //import variables                          
 Jpanel myPanel;
