@@ -9,156 +9,157 @@ import java.awt.*;
 
 public class MyMatchingGame implements ActionListener
 {
-//Very important-- 4x4 board card text --Implemented--
-String[][] CardsToMatch = { 
-                              {"Blue", "Blue"},     
-                              {"Red", "Red"},
-                              {"Green", "Green" },  
-                              {"Purple", "Purple"}, 
-                              {"Orange", "Orange"}, 
-                              {"Yellow", "Yellow"}, 
-                              {"Gray", "Grey" }  
-                            };
-/*
-//Very important-- 8x8 board card text --HAVE NOT IMPLEMENTED THIS.--
-String[][] CardsToMatch2 = {#,#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#,#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
-                          {#.#},
- */
-                          
-//import variables                          
-Jpanel myPanel;
-JFrame myFrame;
-JButton[][] buttonsForGame
-
-//Non-import variables
-int genericInt = 0;
-boolean HasFlipped = true;
-int card;
-int myIndex
-
-
-  public void DealCardsToMatch(Jpanel panelForDealMethod)
-  {
-  myButton = new JButton[3][];
-    for (int genericInt = 0; genericInt < 3*4; genericInt++)
-    {
-    if (genericInt % 4 == 0) myButton[genericInt/4] = new JButton[4];
-    myButton[genericInt/4][a%4] = new Jbutton ("Yaboi");
-    myButton[genericInt/4][a%4].addActionListener(this);
-    panelForDealMethod.add(myButton[[genericInt/4][genericInt%4]);
+    //Very important-- 4x4 board card text --Implemented--
+    String[][] CardsToMatch = { 
+                                  {"Blue", "Blue"},     
+                                  {"Red", "Red"},
+                                  {"Green", "Green" },  
+                                  {"Purple", "Purple"}, 
+                                  {"Orange", "Orange"}, 
+                                  {"Yellow", "Yellow"}, 
+                                  {"Gray", "Grey" }  
+                                };
+    /*
+    //Very important-- 8x8 board card text --HAVE NOT IMPLEMENTED THIS.--
+    String[][] CardsToMatch2 = {#,#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#,#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+                              {#.#},
+     */
+                              
+    //import variables                          
+    Jpanel myPanel;
+    JFrame myFrame;
+    JButton[][] buttonsForGame;
+    
+    //Non-import variables
+    int genericInt = 0;
+    boolean HasFlipped = true;
+    int card;
+    int myIndex;
+    
+    
+      public void DealCardsToMatch(Jpanel panelForDealMethod)
+      {
+      myButton = new JButton[3][];
+        for (int genericInt = 0; genericInt < 3*4; genericInt++)
+        {
+        if (genericInt % 4 == 0) myButton[genericInt/4] = new JButton[4];
+        myButton[genericInt/4][a%4] = new Jbutton ("Yaboi");
+        myButton[genericInt/4][a%4].addActionListener(this);
+        panelForDealMethod.add(myButton[genericInt/4][genericInt%4]);
+        }
+      }
+    //This method is meant to set cards to match
+      public void updateCardsToMatch(String x, String z, boolean math)
+      {
+            int pVal = checkForMatch.length;
+            String[][] ListCurrent;
+            int i,j;
+            
+            if (math) {
+                ListCurrent = new String[pVal+1][];
+                ListCurrent[0] = new String[2];
+                ListCurrent[0][0] = new String(o);
+                ListCurrent[0][1] = new String(p); 
+                for (int temp=1; temp<= pVal; temp++) {
+                    ListCurrent[temp][0] = checkForMatch[temp-1][0];
+                    ListCurrent[temp][1] = checkForMatch[temp-1][1];
+                }
+                checkForMatch = ListCurrent;
+                //This should add the new temp val to the list
+                 } else {
+                ListCurrent = new String[pVal-1][];
+                ListCurrent[0] = new String[2];
+                ListCurrent[0][0] = new String(o);
+                ListCurrent[0][1] = new String(p); 
+                for (int temp=0; temp<= pVal; temp++) {
+                    if (a != ListCurrent[temp][0]) { 
+                        ListCurrent[temp][0] = checkForMatch[temp][0];
+                        ListCurrent[temp][1] = checkForMatch[temp][1];
+                    }
+                }
+                checkForMatch = ListCurrent;
+      }
     }
-  }
-//This method is meant to set cards to match
-  public void updateCardsToMatch(String x, String z, boolean math)
-  {
-        int pVal = checkForMatch.length;
-        String[][] ListCurrent;
-        int i,j;
-        
-        if (math) {
-            ListCurrent = new String[pVal+1][];
-            ListCurrent[0] = new String[2];
-            ListCurrent[0][0] = new String(o);
-            ListCurrent[0][1] = new String(p); 
-            for (int temp=1; temp<= pVal; temp++) {
-                ListCurrent[temp][0] = checkForMatch[temp-1][0];
-                ListCurrent[temp][1] = checkForMatch[temp-1][1];
-            }
-            checkForMatch = ListCurrent;
-            //This should add the new temp val to the list
-             } else {
-            ListCurrent = new String[pVal-1][];
-            ListCurrent[0] = new String[2];
-            ListCurrent[0][0] = new String(o);
-            ListCurrent[0][1] = new String(p); 
-            for (int temp=0; temp<= pVal; temp++) {
-                if (a != ListCurrent[temp][0]) { 
-                    ListCurrent[temp][0] = checkForMatch[temp][0];
-                    ListCurrent[temp][1] = checkForMatch[temp][1];
-                }
-            }
-            checkForMatch = ListCurrent;
-  }
-//This method is meant to update cards after being provided input
-  public void actionMade(ActionEvent myAction) 
-  {
-          int q,w;
-        if (genericInt<2) { //find the card clicked on and flip it over
-
-            for (q=0; q< 3; q++) {
-                for (w=0; w< 4; w++) {
-                    if ((e.getSource()== buttonsForGame[q][w]) && buttonsForGame[q][w].getText().equals("Face-Down"))
-                    {
-                        buttonsForGame[q][w].setText(checkForMatch[(q*4+w)/2][(q*4+w)%2]);
-                        genericInt++;
-                        if (genericInt==1) cardOne = (q*4+w)/2; 
-                        else secIndex = (q*4+w)/2;
-                        return;
+    //This method is meant to update cards after being provided input
+        public void actionMade(ActionEvent myAction) 
+        {
+              int q,w;
+            if (genericInt<2) { //find the card clicked on and flip it over
+    
+                for (q=0; q< 3; q++) {
+                    for (w=0; w< 4; w++) {
+                        if ((e.getSource()== buttonsForGame[q][w]) && buttonsForGame[q][w].getText().equals("Face-Down"))
+                        {
+                            buttonsForGame[q][w].setText(checkForMatch[(q*4+w)/2][(q*4+w)%2]);
+                            genericInt++;
+                            if (genericInt==1) cardOne = (q*4+w)/2; 
+                            else secIndex = (q*4+w)/2;
+                            return;
+                        }
                     }
                 }
-            }
-        } else {
-
-            for (q=0; q< 3; q++) {
-                for (w=0; w< 4; w++) {
-                    if (cardOne == secIndex)
-                    {
-                        if (!buttonsForGame[q][w].getText().equals("Face-Down")) 
-                            buttonsForGame[q][w].setText("--------"); 
+            } else {
+    
+                for (q=0; q< 3; q++) {
+                    for (w=0; w< 4; w++) {
+                        if (cardOne == secIndex)
+                        {
+                            if (!buttonsForGame[q][w].getText().equals("Face-Down")) 
+                                buttonsForGame[q][w].setText("--------"); 
+                        }
+                        else if ((!buttonsForGame[q][w].getText().equals("--------")) && (!buttonsForGame[q][w].getText().equals("Face-Down")))
+                        {
+                            buttonsForGame[q][w].setText("Face-Down"); 
+                        }
                     }
-                    else if ((!buttonsForGame[q][w].getText().equals("--------")) && (!buttonsForGame[q][w].getText().equals("Face-Down")))
-                    {
-                        buttonsForGame[q][w].setText("Face-Down"); 
-                    }
+                    genericInt=0; 
                 }
-                genericInt=0; 
             }
         }
+      
+      //This method is meant to track and look for card input
+      public void makeUI()
+      {
+        
+          Jframe ui = new Jframe("Here is our implementation of a Matching Game c:");
+          ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+          myPanel = new Jpanel(new GridLayout(3,4));
+          myPanel.setPreferredSize(new Dimension(750, 500));
+          DealCardsToMatch(myPanel);
+          //This is the code that sets up the window to be displayed
+          
+          ui.pack();
+          ui.setSize(750, 750);
+          ui.setVisible(true);
+          //this is the code for the display window
+          
+      }
+        //This method is meant to set up the user input screen
+        //End Methods
+    
+      public static void main(string[] args)
+      {
+              javax.swing.SwingUtilities.invokeLater(new Runnable() {
+      public void run() 
+       {
+              MatchGame app = new MatchGame();
+              app.makeGUI();
+       }
+      
+    //main intended to run program 
+    });
     }
-  
-//This method is meant to track and look for card input
-  public void makeUI()
-  {
 
-  Jframe ui = new Jframe("Here is our implementation of a Matching Game c:");
-  ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  myPanel = new Jpanel(new GridLayout(3,4))
-  myPanel.setPreferredSize(new Dimension(750, 500));
-  DealCardsToMatch(myPanel);
-  //This is the code that sets up the window to be displayed
-  
-  ui.pack();
-  ui.setSize(750, 750);
-  ui.setVisible(true)
-  //this is the code for the display window
-  
-  }
-//This method is meant to set up the user input screen
-//End Methods
-
-  public static void main(string[] args)
-  {
-  }
-//main intended to run program 
-}
-javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
-  public void run() 
-   {
-          MatchGame app = new MatchGame();
-          app.makeGUI();
-   }
 });
-}
