@@ -2,164 +2,146 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.*;
 
-//Version 0.7
-//Nickolas Kusman
-//Created UI for program
-
-public class MyMatchingGame implements ActionListener
-{
-    //Very important-- 4x4 board card text --Implemented--
-    String[][] CardsToMatch = { 
-                                  {"Blue", "Blue"},     
-                                  {"Red", "Red"},
-                                  {"Green", "Green" },  
-                                  {"Purple", "Purple"}, 
-                                  {"Orange", "Orange"}, 
-                                  {"Yellow", "Yellow"}, 
-                                  {"Gray", "Grey" }  
-                                };
-    /*
-    //Very important-- 8x8 board card text --HAVE NOT IMPLEMENTED THIS.--
-    String[][] CardsToMatch2 = {#,#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#,#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-                              {#.#},
-     */
-                              
-    //import variables                          
-    Jpanel myPanel;
-    JFrame myFrame;
-    JButton[][] buttonsForGame;
+public class MatchingGameComp330Final implements ActionListener {
+        String[][] CardsToMatch = 
+     
+        //Begin matrix
+        { 
+        {"Red", "Red"}, 
+        {"Green", "Green"},
+        {"Blue", "Blue" }, 
+        {"Yellow", "Yellow"}, 
+        {"Purple", "Purple"},
+        {"Orange", "Orange"},
+        {"Gray", "Grey" },
+        {"Teal", "Teal"},
+        {"Lavender", "Lavender" }
+        };
+        //End matrix
+        
+        //import variables
     
-    //Non-import variables
-    int genericInt = 0;
-    boolean HasFlipped = true;
-    int card;
-    int myIndex;
+        JButton[][] buttonsForGame;
+        JPanel myPanel;
+        JFrame myFrame;
+        //End of import variables
+        
+        //Non-import variables
+        boolean hasFlipped = true;
+        int firstCardChosen; //This variable was formerly known as "card"; changed for readability
+        int secondCardChosen; //This variable was formerly known as "secIndex"; changed for readability
+        int genericInt = 0;
     
     
-      public void DealCardsToMatch(Jpanel panelForDealMethod)
-      {
-      myButton = new JButton[3][];
-        for (int genericInt = 0; genericInt < 3*4; genericInt++)
-        {
-        if (genericInt % 4 == 0) myButton[genericInt/4] = new JButton[4];
-        myButton[genericInt/4][a%4] = new Jbutton ("Yaboi");
-        myButton[genericInt/4][a%4].addActionListener(this);
-        panelForDealMethod.add(myButton[genericInt/4][genericInt%4]);
-        }
+        //End of Non-import variables
+        
+      public void DealCardsToMatch(JPanel panel) {
+                buttonsForGame = new JButton[4][]; 
+                for (int genericInt= 0; genericInt< 4*4; genericInt++) {
+                    if (genericInt%4 == 0) buttonsForGame[genericInt/4] = new JButton[4];
+                    buttonsForGame[genericInt/4][genericInt%4] = new JButton("Face-down");
+                    //Cards are instantiated face down
+                    buttonsForGame[genericInt/4][genericInt%4].addActionListener(this);
+                    panel.add(buttonsForGame[genericInt/4][genericInt%4]);
+                    //This is where shuffling would be added, for demonstration is easier to not
+                }
       }
-    //This method is meant to set cards to match
-      public void updateCardsToMatch(String x, String z, boolean math)
-      {
-            int pVal = checkForMatch.length;
-            String[][] ListCurrent;
-            int i,j;
-            
-            if (math) {
-                ListCurrent = new String[pVal+1][];
-                ListCurrent[0] = new String[2];
-                ListCurrent[0][0] = new String(o);
-                ListCurrent[0][1] = new String(p); 
-                for (int temp=1; temp<= pVal; temp++) {
-                    ListCurrent[temp][0] = checkForMatch[temp-1][0];
-                    ListCurrent[temp][1] = checkForMatch[temp-1][1];
-                }
-                checkForMatch = ListCurrent;
-                //This should add the new temp val to the list
-                 } else {
-                ListCurrent = new String[pVal-1][];
-                ListCurrent[0] = new String[2];
-                ListCurrent[0][0] = new String(o);
-                ListCurrent[0][1] = new String(p); 
-                for (int temp=0; temp<= pVal; temp++) {
-                    if (a != ListCurrent[temp][0]) { 
-                        ListCurrent[temp][0] = checkForMatch[temp][0];
-                        ListCurrent[temp][1] = checkForMatch[temp][1];
-                    }
-                }
-                checkForMatch = ListCurrent;
+      
+        public  void makeGUI() {    
+                JFrame tempFrameForGUI = new JFrame("MatchingGameComp330-Final");
+                tempFrameForGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //
+                myPanel = new JPanel(new GridLayout(4,4));
+                myPanel.setPreferredSize(new Dimension(750, 500));
+                //
+                DealCardsToMatch(myPanel); 
+                // 
+                tempFrameForGUI.getContentPane().setLayout(new BorderLayout());
+                tempFrameForGUI.getContentPane().add(myPanel,BorderLayout.CENTER);
+                //
+                // Instantiates a display
+                tempFrameForGUI.pack();
+                tempFrameForGUI.setSize(750,750); //size of buttons
+                tempFrameForGUI.setVisible(true);
       }
-    }
-    //This method is meant to update cards after being provided input
-        public void actionMade(ActionEvent myAction) 
-        {
-              int q,w;
-            if (genericInt<2) { //find the card clicked on and flip it over
     
-                for (q=0; q< 3; q++) {
-                    for (w=0; w< 4; w++) {
-                        if ((e.getSource()== buttonsForGame[q][w]) && buttonsForGame[q][w].getText().equals("Face-Down"))
-                        {
-                            buttonsForGame[q][w].setText(checkForMatch[(q*4+w)/2][(q*4+w)%2]);
-                            genericInt++;
-                            if (genericInt==1) cardOne = (q*4+w)/2; 
-                            else secIndex = (q*4+w)/2;
-                            return;
+              public void actionPerformed(ActionEvent e) {
+                int k,j;
+             
+                if (genericInt<2) { //find the chosen card and flip it
+                    for (k=0; k< 4; k++) {
+                        for (j=0; j< 4; j++) {
+                            // if the card is not face down, don't flip
+                            if ((e.getSource()== buttonsForGame[k][j]) && buttonsForGame[k][j].getText().equals("Face-down")){
+                                // flip the card face-up to show text from CardsToMatch
+                                buttonsForGame[k][j].setText(CardsToMatch[(k*4+j)/2][(k*4+j)%2]);
+                                genericInt++; // increment number of cards flipped
+                                if (genericInt==1) firstCardChosen = (k*4+j)/2; //pattern saved first
+                                else secondCardChosen = (k*4+j)/2; //pattern saved second
+                                return;
+                            }
                         }
                     }
-                }
-            } else {
-    
-                for (q=0; q< 3; q++) {
-                    for (w=0; w< 4; w++) {
-                        if (cardOne == secIndex)
-                        {
-                            if (!buttonsForGame[q][w].getText().equals("Face-Down")) 
-                                buttonsForGame[q][w].setText("--------"); 
+                } else { // 2 cards already flipped, put all cards face down
+                    for (k=0; k< 4; k++) {
+                        for (j=0; j< 4; j++) {
+                            if (firstCardChosen == secondCardChosen) { //for matched cards
+                                if (!buttonsForGame[k][j].getText().equals("Face-down")) // leave face down cards down
+                                    buttonsForGame[k][j].setText("-Solved-");//when the cards are matched, show the solved symbol
+                            } else if ((!buttonsForGame[k][j].getText().equals("-Solved-")) && (!buttonsForGame[k][j].getText().equals("Face-down")))
+                            {
+                                buttonsForGame[k][j].setText("Face-down"); // flip cards back down if not matching
                         }
-                        else if ((!buttonsForGame[q][w].getText().equals("--------")) && (!buttonsForGame[q][w].getText().equals("Face-Down")))
-                        {
-                            buttonsForGame[q][w].setText("Face-Down"); 
-                        }
+                        genericInt=0; // new turn, no cards flipped face up
                     }
-                    genericInt=0; 
                 }
             }
-        }
-      
-      //This method is meant to track and look for card input
-      public void makeUI()
-      {
-        
-          Jframe ui = new Jframe("Here is our implementation of a Matching Game c:");
-          ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          myPanel = new Jpanel(new GridLayout(3,4));
-          myPanel.setPreferredSize(new Dimension(750, 500));
-          DealCardsToMatch(myPanel);
-          //This is the code that sets up the window to be displayed
-          
-          ui.pack();
-          ui.setSize(750, 750);
-          ui.setVisible(true);
-          //this is the code for the display window
-          
       }
-        //This method is meant to set up the user input screen
-        //End Methods
+        
+      public void updateCardsToMatch(String a, String b, boolean math) {
+            int i,j;
+            String[][] listOfColors; //formerly listCurrent
+            int pVal = CardsToMatch.length;
     
-      public static void main(string[] args)
-      {
-              javax.swing.SwingUtilities.invokeLater(new Runnable() {
-      public void run() 
-       {
-              MatchGame app = new MatchGame();
-              app.makeGUI();
+            if (math) { // add the new temp to the list
+                listOfColors = new String[pVal+1][];
+                listOfColors[0] = new String[2];
+                listOfColors[0][0] = new String(a);//instantiates a new color
+                listOfColors[0][1] = new String(b); //instantiates the matching new color
+                for (int temp=1; temp<= pVal; temp++) {
+                    listOfColors[temp][0] = CardsToMatch[temp-1][0];
+                    listOfColors[temp][1] = CardsToMatch[temp-1][1];
+                }
+                CardsToMatch = listOfColors;
+            } else { // delete matching temp
+                listOfColors = new String[pVal-1][];
+                listOfColors[0] = new String[2];
+                listOfColors[0][0] = new String(a);//instantiates a new color
+                listOfColors[0][1] = new String(b);//instantiates the new matching color
+                for (int temp=0; temp<= pVal; temp++) {
+                    if (a != listOfColors[temp][0]) {
+                        listOfColors[temp][0] = CardsToMatch[temp][0];
+                        listOfColors[temp][1] = CardsToMatch[temp][1];
+                    }
+                }
+                CardsToMatch = listOfColors;
+            }
+        }
+    
+     public static void main(String[] args) {
+                    //Schedule a job for the event-dispatching thread
+                    //to create application and display its GUI
+                    javax.swing.SwingUtilities.invokeLater(new Runnable() 
+               {
+                    public void run() {
+                            MatchingGameComp330Final game = new MatchingGameComp330Final();
+                            game.makeGUI();
+                    }
+               }
+          );
        }
-      
-    //main intended to run program 
-    });
-    }
-
-});
+    
+}
