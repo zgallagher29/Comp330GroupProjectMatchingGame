@@ -5,6 +5,8 @@ import java.awt.*;
 import java.io.*;
 import java.*;
 
+//Version 1.0, Final draft:
+
 public class MatchingGameComp330Final implements ActionListener {
         String[][] CardsToMatch = 
      
