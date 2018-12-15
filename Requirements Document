@@ -7,3 +7,5 @@ The purpose of the matching game is so that people can challenge their memory. P
 Objectives:
 Create matching game that takes in user input to make a board size (Must be even number and no larger than 8x8 but no smaller than 4x4).
 
+How to play the game
+When the user opens the app the main screen will appear where they can choose the size of the board. They will then get the option if they want to play with a timer or not. Once in the game they will select two cards and if they match they will be removed. If they don’t match they will be flipped back over. When the game ends it will display the amount of time they had left if they won, and say “Time’s up. You lose” if they run out of time.The game will then return to the menu for them to play again.
