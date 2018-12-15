@@ -3,8 +3,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 import java.awt.*;
 
-//Version 0.7
-//Nickolas Kusman
+//Version 1.0
+//Nickolas Kusman, Patrick Maxwell, Nicholas Carsello, Michael Woelfel
 //Created UI for program
 
 public class MyMatchingGame implements ActionListener
