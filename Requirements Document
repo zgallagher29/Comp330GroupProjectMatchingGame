@@ -11,7 +11,7 @@ How to play the game
 When the user opens the app the main screen will appear where they can choose the size of the board. They will then get the option if they want to play with a timer or not. Once in the game they will select two cards and if they match they will be removed. If they don’t match they will be flipped back over. When the game ends it will display the amount of time they had left if they won, and say “Time’s up. You lose” if they run out of time.The game will then return to the menu for them to play again.
 
 Nonfunctional Requirements: 
-  The colors be nice to the eye - not too bright, not to dim, and not a bad contrast.
-  The font should be sized to fit the users screen
-  Must have almost instantaneous response time
-  Internet connection would not be necessary as everything would be included in the application and code.
+  1. The colors be nice to the eye - not too bright, not to dim, and not a bad contrast.
+  2. The font should be sized to fit the users screen
+  3. Must have almost instantaneous response time
+  4. Internet connection would not be necessary as everything would be included in the application and code.
